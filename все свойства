@@ -1,0 +1,392 @@
+input[type=text] {
+width: 20%; /* ширина элемента */
+transition: width 500ms ease-in-out; /* описываем переходный эффект (свойство, продолжительность и функция) */
+}
+input[type=text]:focus {
+width: 40%; /* ширина элемента при фокусе на элементе */
+}
+div > div {  -  Берет только дочерние div (второй уровень), а не все вложенные
+	width: 30%; /* ширина элемента */
+	background: rgb(0,150,208); /* цвет заднего фона */
+	color: #fff; /* цвет текста */
+	margin: 1px; /* внешние отступы со всех сторон */
+}
+.container,
+.container2
+{   
+	display: flex; /* блочные флекс контейнеры */
+	height: 200px; /* высота контейнера */
+	background: rgba(0,0,0,.4); /* цвет заднего фона */
+}
+
+div > div:nth-of-type(1) { /* выбираем первый <div> в каждом контейнере */ 
+	background: orange; /* цвет заднего фона */
+	font-size: 30px; /* размер шрифта */
+}
+div > div:nth-of-type(2) { /* выбираем второй <div> в каждом контейнере */ 
+	background: tan; /* цвет заднего фона */
+	font-size: 20px; /* размер шрифта */
+	} 
+div > div:nth-of-type(3) { /* выбираем третий <div> в каждом контейнере */ 
+	background: rgb(0,150,208); /* цвет заднего фона */
+	font-size: 15px; /* размер шрифта */
+}
+
+.container div:nth-of-type(4) { /* выбираем четвертый <div> в первом контейнере */ 
+	order: -1;  /* определяем порядок следования флекс элемента */
+	background: violet;  /* цвет заднего фона */ 
+}
+.container2 div:nth-of-type(4) { /* выбираем четвертый <div> во втором контейнере */ 
+	order: 1;  /* определяем порядок следования флекс элемента */
+	background: violet;  /* цвет заднего фона */ 
+}
+.container3 div:nth-of-type(4) { /* выбираем четвертый <div> в третьем контейнере */ 
+	order: 2;  /* определяем порядок следования флекс элемента */
+	background: violet;  /* цвет заднего фона */ 
+}
+
+.container,
+.container2,
+.container3 {     
+	display: flex; /* блочные флекс контейнеры */
+}
+.container {       
+	flex-wrap: nowrap; /* однострочный флекс контейнер (по умолчанию) */
+}
+.container2 {     
+	flex-wrap: wrap; /* многострочный флекс контейнер */
+}
+.container3 {     
+	flex-wrap: wrap-reverse; /* многострочный флекс контейнер (формирование строк идёт в обратном порядке)*/
+}
+.content {    
+	display: flex;  /* элемент отображается как блочный флекс контейнер */
+	height: calc(100vh - 200px);  /* высчитываем высоту для элемента */
+	background: #999;  /* цвет заднего фона */
+}
+@font-face { - ВЫЗОВ СКАЧАННОГО ШРИФТА
+font-family: "Roboto";  /* задаем произвольное имя для шрифта, которое будет использоваться в свойстве font-family при указании стилей для конкретных элементов */
+src: url("/fonts/Roboto-Italic.ttf") format('truetype');  /* задаем путь относительно корня сайта к шрифту (url) и тип шрифта (format). Тип шрифта выступает подсказкой для браузера (в идеале ускоряет процесс обработки) */
+font-style: italic;  /* указываем, что стиль шрифта курсивный */
+font-weight: normal;  /* определяет нормальное начертание символов - это значение по умолчанию */ 
+}
+h2, p, b, i {  /* задаем групповой селектор для элементов <h2>, <p>, <b>, <i> */
+font-family: "Roboto", sans-serif;  /* устанавливаем шрифт Roboto, если он не будет загружен по какой-то причине, то указываем, чтобы браузер установил шрифт из семейства шрифтов без засечек (sans-serif)  */
+}
+
+z-index: auto - по порядку в DOM. Порядок по оси Z. Наложение элементов друг на друга. 
+z-index: 2 - число
+z-index: inline - в значение по умолчанию
+z-index: inherit - наследует значение от родительского элемента
+position: relative - Относительное позиционирование. Отрицательное значение влево, положительно вправо.
+left: 200px - смещает вправо относительно текущего места
+position: absolute - смещает относительного левого края предка. Значение должно быть отличное от Static.
+	Тоесть если родитель static, а предок relative, то сдвигает от его уже границ
+left: 200px
+position: fixed - смещается от окна браузера и при прокрутке страницы остается на месте
+left: 200px
+position: static - по умолчанию. значение left не повлияет. Только static может быть плавающим.
+float: left - элемент становится плавающим и смещается влево
+float: right - элемент смещается вправо
+float: none - по умолчанию в порядке DOM
+clear: none - Объект разрешает обтекание с обеих сторон
+clear: left - слева
+clear: right - справа
+clear: both - не разрешает обтекание с обеих сторон
+
+Tag::after{  - После элемента. Все селекторы.
+    content:
+}
+Tag::before{  - Перед Элементом
+    content:
+}
+input:focus{} - При выборе поля
+div:active{} - Клик
+div:hover{} - срабатывает при наведении, используется для стилизации. После :link и :visited
+img[alt] - выбор атрибутом alt у элемента
+input[type=password]:focus { /* выбираем элемент <input>, атрибут type которого имеет значение password и который находится в фокусе */
+border: 1px solid green; /* устанавливаем сплошную границу размером 1 пиксель зеленого цвета */
+} 
+tr:hover:not(:first-child)  - не подсвечивает первую строку, кроме остальных 
+td:hover:after {} -после наведение добавляет контент и выделяет столбец
+:first-child
+:last-child
+h2:nth-child(3) - Селектор по номеру
+td:nth-child(4n+2) {} - Селектор по формуле, выбираем каждый четвертый элемент, начиная со второго 
+.primer1 tr:nth-child(even) - Выбирает все четные
+.primer2 tr:nth-child(odd) - Выбирает все нечетные
+.test p:first-of-type - первый элемент определенного типа
+:last-of-type - последний
+
+https://fonts.google.com/ - качать шрифты
+Подключение шрифта
+<link href = 'https://fonts.googleapis.com/css?family=Roboto:400,700,400italic&subset=latin,cyrillic' rel = 'stylesheet' type = 'text/css'> 
+text-decoration: none; /* убираем декорирование текста (нижнее подчеркивание) */
+text-decoration: underline - Подчеркивание под текстом
+text-decoration: overline - Подчеркивание над текстом
+text-decoration: line-through - Зачеркивание
+text-transform: none - Регистр
+text-transform: capitalize - Преобразует первые символы каждого слова в верхний регистр
+text-transform: uppercase - Преобразует все символы в верхний регистр
+text-transform: lowercase - Преобразует все символы в нижний регистр.
+text-align: left - горизонтальное выравнивание текста
+vertical-align: middle - вертикальное выравнивание текста
+font-variant - строчные знаки выглядят как уменьшенные заглавные буквы
+color: brown; /* устанавливаем цвет текста */
+font-weight: bold; /* устанавливаем жирное начертание шрифта */
+font-size: 20 px - Размер шрифта
+font-size: 50%; 
+font-family: Arial
+font-style: normal;  /* указываем, что стиль шрифта обычный
+color: red !important; /* отменяем значимость стилей и устанавливаем цвет текста красный */
+text-align: left
+text-align: right
+text-align: center
+text-align: justify - Растягивает текст по ширине
+text-indent: 20 px - Отступ первой строки текста (% тоже есть)
+line-height: 20px - Высота строки. Междустрочный интервал (Высота строки - размер шрифта)
+letter-spacing: 2 px - расстояние между символами
+word-spacing: 5px - расстояние между словами
+word-wrap: break-word - слово может быть прерванно
+
+list-style-type - Типы нумерации списка ul и ol
+list-style-position : outside - Вложенность списков
+list-style-position : inside
+list-style-image : url('images/primer.png')
+
+border-width
+border-style: none - стиль границы
+border-style: hidden
+border-style: dotted - Точечная граница
+border-style: dashed - Пунктирная граница
+border-style: solid - Сплошная граница
+border-style: double - Двойная граница
+border-style: groove - с 3d эффектом
+border-style: ridge - с 3d эффектом
+border-style: inset - с 3d эффектом
+border-style: outset - с 3d эффектом
+border-color
+border: 4px solid orange - универсальное свойство.
+border-radius:
+border-top-left-radius
+box-shadow - Тень для элемента. Не стал разбираться
+box-sizing: border-box - Меня модель счета пикселей. Включается border и padding. Особенно если ВАЖНО inline-block 
+box-sizing: content-box; /* ширина и высота элемента включают в себя только содержание элемента (по умолчанию)
+overflow: visible - по умолчанию
+overflow: hidden - Переполнение обрезается
+overflow: scroll - Переполнение обрезается, но добавляется полоса прокрутки
+overflow: auto - Если переполнение обрезается, то полоса прокрутки будет добавлена автоматически
+vertical-align: top; /* верх элемента выравнивается по верху самого высокого элемента в строке (вертикальное позиционирование) */
+
+background-image: url(omages/main.png) - задает картинку. Путь относительно css файла
+background-color: white
+background-repeat: repeat - Повтор фонового изображения
+background-repeat: repeat-x
+background-repeat: repeat-y
+background-repeat: no-repeat
+background-position: - задает позицию картинки. Можно словами, x y (10px,10px или 10%, 10%)
+background-attachment: fixed - Фиксирует фон, при прокрутке он не последует
+background-attachment: scroll
+background-attachment: local
+background-origin: padding-box - фон позиционируется от верхнего левого угла элемента
+background-origin: border-box - фон позиционируется от верхнего левого угла элемента
+background-origin: content-box - фон позиционируется от верхнего левого угла содержимого элемента
+background-clip: border-box - определяет ту область для которой будет задан фон
+background-clip: padding-box
+background-clip: content-box
+background-size: auto - размер фона
+background-size: length - ширину и высоту
+background-size: %
+background-size: cover - масштабирует под размеры элемента. Части фона могут быть скрыты
+background-size: contain - масштабирует, уменьшает фон под размеры элемента
+background: color image position/size repeat origin clip attachment - универсальное, можно поместить все свойства
+background: url('lis.png') top/contain no-repeat, url('cat_g.jpg') bottom/cover no-repeat; 
+background: white url('cat_g.jpg') bottom/cover no-repeat;
+background-image: linear-gradient(orange, black) - градиент идет по прямой от одного элемента к другому с разными цветами
+background-image: linear-gradient(to left, rgba(255,0,0,.4), #999) - градиент размещает справа 
+
+-webkit-свойство: значение - для старых браузеров Chrome Opera Safari
+-moz-свойство: значение - Firefox
+-o-свойство: значение - Opera
+-ms-свойство: значение - Internet Explorer
+
+Для таблицы
+border-spacing - Удаляет промежутки между ячейками
+border-collapse - отображение границ ячеек
+empty-cells: show - отображает пустые ячейки
+empty-cells: hide
+caption-side: top - заголовок таблицы сверху
+caption-side: bottom 
+table-layout: fixed - фиксированные не считывает всю таблицу, показывает ее быстрее 
+
+transition-duration: 1.5s - время необходимое для плавного изменения цвета. Можно использовать селектор :hover
+							Не забудь просто в div указать это же свойство для возвращения цвета
+transition-duration: 2s, 4s, 6s - указывает время для каждого свойство
+transition-property: background-color, border-color, color - указывает имя свойства для которого идет переход
+transition-delay: 2s - Задержка при перед переходом
+transition-timing-function: ease - регулирует скорость в различные промежутки эффекта. 
+							Если значений больше кол-ва свойств, то по кругу идут
+transition-timing-function: linear
+transition-timing-function: ease-in
+transition-timing-function: ease-out
+transition-timing-function: ease-in-out
+transition-timing-function:cubic-bezier 0.5,0.05,0.7,0.5)
+transition-timing-function: steps(int,start|end)
+transition-timing-function: step-start
+transition-timing-function: step-end
+transition:"property duration timing-function delay"
+
+transform - применяет к элементу двухмерные и трех мерные функции. Может быть несколько через запятую
+transform: perspective(500px) rotateX(45deg) scale3d(1,2,1)
+transform: skew(20deg,30deg) - двухмерный Наклон  относительно оси X и Y. deg - это градусы
+transform: skewX(25deg) - только по Х
+transform: skewY(25deg) - только по У
+transform: rotate(45deg) - поворот по часовой стрелке или против
+transform: rotateX()
+transform: rotateY()
+transform: rotateZ()
+transform: rotate3d(2,1,0, 50deg)
+transform:scale(0.5) - Масштабирование элементов. для обеих осей 0.5. По аналогии scaleX(), scaleY() и scaleZ()
+transform:scale(0.5, 0.8)
+transform: perspective() - перспектива обзора элемента
+transform: translate(-20px,20px) - сдвиг элемента. translateX translateY translateZ 
+transform: translate3d() - сдвиг одновременно по трем осям
+transform: matrix(1,0, -1,1,0,0) - двумерная матрица
+transform: matrix3d(0.3, -0.4, 0.8, 0, 0.2, 0.9, 0.4, 0, -0.9, 0, 0.4, 0, 0, 0, 0, 1)
+transform-origin: left top - начальная точка при преобразовании
+
+@keyframes growElement { /* указываем имя анимации. Синтаксис аниммации */
+	0% { /* начало цикла анимации */
+	width: 50px; /* ширина элемента */
+	background-color: yellow; /* цвет заднего фона */ 
+	}
+	50% { /* середина цикла анимации */ 
+	width: 100px; /* ширина элемента */
+	background-color: green; /* цвет заднего фона */
+	}
+	100% { /* конец цикла анимации */
+	width: 200px; /* ширина элемента */
+	background-color: red; /* цвет заднего фона */
+	}
+}
+animation-duration: 2s - время используемое на анимацию для одного цикла
+animation-name: growElement
+animation-iteration-count: 1 - количество повторений всего цикла
+animation-delay: 2s - задержка анимации
+animation-timing-function: - аналог transition-timing-function. 
+							определяет время анимации, используемое, чтобы изменить один набор стилей
+animation-play-state: running - запуск анимации
+animation-play-state:paused - анимация оставливается, например при наведении
+animation-direction: normal - при завершении, анимация начинается сначала
+animation-direction: reverse
+animation-direction: alternate
+animation-direction: alternate-reverse
+animation-fill-mode: forwards - применяет стиль последнего кадра после завершения анимеции
+animation-fill-mode: backwards - применяет стиль первого кадра после завершения анимеции
+animation: animation-name animation-duration animation-timing-function animation-delay 
+		 animation-iteration-count  animation-direction  animation-fill-mode  animation-play-state - универсальная запись
+animation-fill-mode: both
+margin: 5px - внешние отступы со всех сторон
+margin: 2% 10%
+
+display: block;
+vertical-align - выравнивание, только для блочного
+display: inline-block - строчный блочный контейнер
+display: flex - блочный флекс контейнер, флекс элементы только дочерние. Внутри дочерних не флекс элементы
+display: inline-flex - строчный флекс контейнер, обычные встроенные элементы, сохраняя гибкость
+flex-direction - указать направление для элементов внутри. Главная ось - горизонтальная, поперечная -вертикальная
+flex-direction:  row - по умолчанию слева-направо
+flex-direction: column  - сверху - вниз
+flex-direction: row-reverse - справа - налево
+flex-direction: column-reverse - снизу вверх
+flex-wrap: nowrap - однострочный контейнер
+flex-wrap: wrap - многострочный, элемент перескакивает на вторую строку. слева - направо
+flex-wrap: wrap-reverse - многострочный. справа налево
+flex-flow: "flex-direction flex-wrap"; - отображает два свойства сразу и направление, и многострочность
+flex-flow: row-reverse wrap-reverse
+justify-content: flex-start - Горизонтальное выравнивание. Распределяет пространство между и вокруг элементов 
+                            по умолчанию. слева-направо. Работает когда явно указана ширина элементов и есть место
+justify-content: flex-end - справа-налево
+justify-content: center - выравнивание по центру
+justify-content: space-between - равномерно распределяются по все строке
+justify-content: space-around - равномерно распределяются, но пустое пространство перед первым и последним равно половине
+align-content: stretch - Вертикальное выравнивание. Работает только при свойстве flex-wrap: wrap. 
+                        Строки равномерно растягиваются. Распределяет пространство между и вокруг элементов
+align-content: flex-start - Строки сверху
+align-content: flex-end - Строки снизу
+align-content: center - По центру
+align-content: space-between - Распределяются равномерно. Сверху и снизу
+align-content: space-around - Между двумя строками одинаковое, но перед первым и после последнего равно половине
+align-content: evenly - Равномерно все
+place-content: - одновременно и алигн и джастифи
+align-items: stretch - Выравнивание по высоте строки. аналог justify-content, но вертикально. 
+                    Растягиваются по размеру контейнера
+align-items: flex-start - распалагаются вначале контейнера 
+align-items: flex-end - распалагаются вконце контейнера
+align-items: center - по центру контейнера
+align-items: baseline - элементы распалагаются по их базовой линии
+order: -1 - Задает порядок следования flex элементов горизонтально или вертикально. Значение любое. Это просто значение.
+align-self: stretch - переопределяет align-items. Выравнивает по вертикали 1 элемент.
+align-self: auto - Берет значение родительского элемента. Растягивается по размеру строки.
+align-self: flex-start - начало строки
+align-self: flex-end - конец строки
+align-self: center - по центру строки
+align-self: baseline - по базовой линии строки
+flex-grow: 2 - Относительная ширина.Элемент будет увеличен в два раза по отношению к остальным элементам
+flex-basis: 200px - Размер по умолчанию перед распределением flex-grow. Не может выйти за пределы родителя. 
+                    Если произошло - уменьшится. (ШИРИНА или высота учитывается???)
+flex-shrink: 2 - на сколько будет уменьшена ширина блока по отношению к остальным
+flex - Универсальная установка значений по умолчанию, если одна переменная:
+flex: 2 - то flex-grow
+flex: 20px - то flex-basis
+flex: 1 1 100px - то grow|shrink|basis
+
+@media
+@font-face - правило позволяет сайт скачать и использовать шрифты
+@keyframes - контроль промежуточных этапов анимации
+@import - импорт css файла
+and, not, only, "," - Логические операторы для медиа запроса
+media type:
+- all - для всех 
+- print - печатные страницы
+- screen - экраны компьютера
+- speech  - речь
+Функции:
+- aspect-ratio - соотношение пикселей по горизонтали и вертикали
+- max-aspect-ratio
+- min-aspect-ratio
+- grid - выходное устройство на сеточной системе
+- height - Задает высоту области просмотра
+- max-height
+- min-height
+- width
+- max-width
+- min-width
+- orientation: landscape
+- orientation: portrait
+@media not | only mediatype and (media function) {
+  ...код CSS
+}
+// Small devices (landscape phones, минимальная ширина области просмотра 576px и выше)
+@media (min-width: 576px) { ...код CSS }
+
+// Medium devices (tablets, минимальная ширина области просмотра 768px и выше)
+@media (min-width: 768px) { ...код CSS }
+
+// Large devices (desktops, минимальная ширина области просмотра 992px и выше)
+@media (min-width: 992px) { ...код CSS }
+
+// Extra large devices (large desktops, минимальная ширина области просмотра 1200px и выше)
+@media (min-width: 1200px) { ...код CSS }
+
+// Extra small devices (portrait phones, максимальная ширина области просмотра 576px и ниже)
+@media (max-width: 575.98px) { ...код CSS }
+
+// Small devices (landscape phones, максимальная ширина области просмотра 768px и ниже)
+@media (max-width: 767.98px) { ...код CSS }
+
+// Medium devices (tablets, максимальная ширина области просмотра 992px и ниже)
+@media (max-width: 991.98px) { ...код CSS }
+
+// Large devices (desktops, максимальная ширина области просмотра 1200px и ниже)
+@media (max-width: 1199.98px) { ...код CSS }
